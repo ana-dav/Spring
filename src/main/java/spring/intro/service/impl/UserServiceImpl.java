@@ -1,11 +1,9 @@
 package spring.intro.service.impl;
 
 import java.util.List;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import spring.intro.dao.interfaces.UserDao;
 import spring.intro.model.User;
-import org.springframework.stereotype.Service;
 import spring.intro.service.interfaces.UserService;
 
 @Service
