@@ -1,5 +1,4 @@
 spring/intro/service/interfaces/UserService.class
-spring/intro/util/HibernateUtil.class
 spring/intro/util/HashUtil.class
 spring/intro/exception/DataProcessingException.class
 spring/intro/App.class
