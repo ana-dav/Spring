@@ -18,10 +18,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        Session session = null;
         Transaction transaction = null;
-        try {
-            session = sessionFactory.openSession();
+        try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             session.save(user);
             transaction.commit();
@@ -31,10 +29,6 @@ public class UserDaoImpl implements UserDao {
             }
             throw new DataProcessingException("There was an error inserting "
                     + user, e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
         }
     }
 
