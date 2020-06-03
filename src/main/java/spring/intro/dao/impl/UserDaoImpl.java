@@ -18,8 +18,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
+        Session session = null;
         Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
+        try {
+            session = sessionFactory.openSession();
             transaction = session.beginTransaction();
             session.save(user);
             transaction.commit();
@@ -29,14 +31,21 @@ public class UserDaoImpl implements UserDao {
             }
             throw new DataProcessingException("There was an error inserting "
                     + user, e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
     }
 
     @Override
     public List<User> listUsers() {
-        return sessionFactory
-                .openSession()
-                .createQuery("from User")
-                .getResultList();
+        try (Session session = sessionFactory.openSession()) {
+            return session
+                    .createQuery("from User")
+                    .getResultList();
+        } catch (Exception e) {
+            throw new DataProcessingException("Error retrieving user by email ", e);
+        }
     }
 }
