@@ -22,6 +22,11 @@ public class User {
     public User() {
     }
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public User(String email, String password, byte[] salt) {
         this.email = email;
         this.password = password;
