@@ -1,4 +1,4 @@
-package spring.intro.model;
+package dto.model;
 
 import java.util.Arrays;
 import javax.persistence.Column;

@@ -1,4 +1,4 @@
-package spring.intro.config;
+package dto.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,11 +9,11 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"spring.intro.controllers"})
+@ComponentScan(basePackages = {"dto.controller"})
 public class WebConfig {
 
     @Bean
-    public InternalResourceViewResolver resolver() {
+    public InternalResourceViewResolver getResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setViewClass(JstlView.class);
         resolver.setPrefix("WEB-INF/views/");

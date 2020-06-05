@@ -1,14 +1,15 @@
-package spring.intro.controllers;
+package dto.controller;
 
+import dto.UserResponseDto;
+import dto.model.User;
+import dto.service.interfaces.UserService;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import spring.intro.UserResponseDto;
-import spring.intro.model.User;
-import spring.intro.service.interfaces.UserService;
 
 @RestController
 @RequestMapping("/user")
@@ -28,15 +29,22 @@ public class UserController {
         return "4 users has been added successfully";
     }
 
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    @GetMapping(value = "/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
-        return new UserResponseDto(userService.getById(userId));
+        return getUserResponseDto(userService.getById(userId));
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public List<UserResponseDto> getAll() {
         return userService.listUsers().stream()
-                .map(UserResponseDto::new)
+                .map((this::getUserResponseDto))
                 .collect(Collectors.toList());
+    }
+
+    private UserResponseDto getUserResponseDto(User user) {
+        UserResponseDto dto = new UserResponseDto();
+        dto.setEmail(user.getEmail());
+        dto.setPassword(user.getPassword());
+        return dto;
     }
 }

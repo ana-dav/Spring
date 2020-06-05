@@ -1,14 +1,14 @@
-package spring.intro.dao.impl;
+package dto.dao.impl;
 
+import dto.dao.interfaces.UserDao;
+import dto.exception.DataProcessingException;
+import dto.model.User;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import spring.intro.dao.interfaces.UserDao;
-import spring.intro.exception.DataProcessingException;
-import spring.intro.model.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {

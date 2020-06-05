@@ -1,10 +1,10 @@
-package spring.intro.service.impl;
+package dto.service.impl;
 
+import dto.dao.interfaces.UserDao;
+import dto.model.User;
+import dto.service.interfaces.UserService;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import spring.intro.dao.interfaces.UserDao;
-import spring.intro.model.User;
-import spring.intro.service.interfaces.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

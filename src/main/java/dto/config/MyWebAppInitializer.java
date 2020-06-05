@@ -1,4 +1,4 @@
-package spring.intro.config;
+package dto.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

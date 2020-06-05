@@ -1,10 +1,10 @@
-package spring.intro;
+package dto;
 
+import dto.config.AppConfig;
+import dto.model.User;
+import dto.service.interfaces.UserService;
 import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.intro.config.AppConfig;
-import spring.intro.model.User;
-import spring.intro.service.interfaces.UserService;
 
 public class App {
     public static void main(String[] args) {

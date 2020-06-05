@@ -1,5 +1,6 @@
-package spring.intro.config;
+package dto.config;
 
+import dto.model.User;
 import java.util.Properties;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -10,13 +11,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import spring.intro.model.User;
 
 @Configuration
 @PropertySource("classpath:db.properties")
 @ComponentScan(basePackages = {
-        "spring.intro.dao",
-        "spring.intro.service"
+        "dto.dao",
+        "dto.service"
 })
 public class AppConfig {
     @Autowired
