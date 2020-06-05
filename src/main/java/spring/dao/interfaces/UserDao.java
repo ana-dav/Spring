@@ -1,10 +1,12 @@
-package spring.intro.dao.interfaces;
+package spring.dao.interfaces;
 
 import java.util.List;
-import spring.intro.model.User;
+import spring.model.User;
 
 public interface UserDao {
     void add(User user);
 
     List<User> listUsers();
+
+    User getById(Long userId);
 }

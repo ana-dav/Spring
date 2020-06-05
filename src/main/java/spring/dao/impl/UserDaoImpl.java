@@ -1,4 +1,4 @@
-package spring.intro.dao.impl;
+package spring.dao.impl;
 
 import java.util.List;
 import org.hibernate.Session;
@@ -6,9 +6,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import spring.intro.dao.interfaces.UserDao;
-import spring.intro.exception.DataProcessingException;
-import spring.intro.model.User;
+import spring.dao.interfaces.UserDao;
+import spring.exception.DataProcessingException;
+import spring.model.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -46,6 +46,17 @@ public class UserDaoImpl implements UserDao {
                     .getResultList();
         } catch (Exception e) {
             throw new DataProcessingException("Error retrieving user by email ", e);
+        }
+    }
+
+    @Override
+    public User getById(Long userId) {
+        try (Session session = sessionFactory.openSession()) {
+            return (User) session
+                    .createQuery("from User where id = :userId")
+                    .uniqueResult();
+        } catch (Exception e) {
+            throw new DataProcessingException("Error retrieving user by id ", e);
         }
     }
 }

@@ -1,10 +1,10 @@
-package spring.intro;
+package spring;
 
 import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.intro.config.AppConfig;
-import spring.intro.model.User;
-import spring.intro.service.interfaces.UserService;
+import spring.config.AppConfig;
+import spring.model.User;
+import spring.service.interfaces.UserService;
 
 public class App {
     public static void main(String[] args) {

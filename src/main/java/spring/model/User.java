@@ -1,4 +1,4 @@
-package spring.intro.model;
+package spring.model;
 
 import java.util.Arrays;
 import javax.persistence.Column;
@@ -20,6 +20,11 @@ public class User {
     private byte[] salt;
 
     public User() {
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public User(String email, String password, byte[] salt) {
