@@ -1,4 +1,4 @@
-package dto.exception;
+package spring.exception;
 
 public class DataProcessingException extends RuntimeException {
     public DataProcessingException(String message, Throwable cause) {

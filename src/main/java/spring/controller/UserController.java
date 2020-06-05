@@ -1,8 +1,5 @@
-package dto.controller;
+package spring.controller;
 
-import dto.UserResponseDto;
-import dto.model.User;
-import dto.service.interfaces.UserService;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import spring.dto.UserResponseDto;
+import spring.model.User;
+import spring.service.interfaces.UserService;
 
 @RestController
 @RequestMapping("/user")
@@ -29,12 +29,12 @@ public class UserController {
         return "4 users has been added successfully";
     }
 
-    @GetMapping(value = "/{userId}")
+    @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
         return getUserResponseDto(userService.getById(userId));
     }
 
-    @GetMapping(value = "/")
+    @GetMapping
     public List<UserResponseDto> getAll() {
         return userService.listUsers().stream()
                 .map((this::getUserResponseDto))

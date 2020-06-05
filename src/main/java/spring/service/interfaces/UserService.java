@@ -1,9 +1,9 @@
-package dto.dao.interfaces;
+package spring.service.interfaces;
 
-import dto.model.User;
 import java.util.List;
+import spring.model.User;
 
-public interface UserDao {
+public interface UserService {
     void add(User user);
 
     List<User> listUsers();
